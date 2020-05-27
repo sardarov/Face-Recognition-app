@@ -1,0 +1,15 @@
+.mainImageContainer {
+    position: relative;
+}
+
+.main-img {
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.face-box-yellow {
+    position: absolute;
+    border: 3px solid yellow;
+    background-color: transparent;
+    cursor: pointer;
+}
