@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="card">
+        <h3 class="card-header">Your Groups</h3>
+        <div class="card-body">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Group Name" #newGroup>
+                <span class="input-group-btn">
+                    <button class="btn btn-primary mb-2 mr-sm-2 mb-sm-0" type="button"
+                        (click)="addPersonGroup(newGroup.value)">Add Group</button>
+                </span>
+            </div>
+            <ul class="groups">
+                <li *ngFor="let group of personGroups; let i = index" [class.selected]="group === selectedGroup"
+                    (click)="onSelectGroup(group)">
+                    <span class="badge">{{i+1}}</span>{{group.name}}
+                </li>
+            </ul>
+
+            <div *ngIf="selectedGroup">
+
+                <button type="button" class="btn btn-danger mb-2 mr-sm-2 mb-sm-0" (click)="deletePersonGroup()">Delete
+                    Group</button>
+                <!--<button type="button" class="btn btn-success mb-2 mr-sm-2 mb-sm-0"
+                    (click)="trainPersonGroup()">Train Group</button>
+                <button type="button" class="btn btn-info"
+                    (click)="getGroupTrainingStatus()">Check Training Status</button>-->
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--<select [(ngModel)]="selectedGroupId" name="personGroups" class="form-control mb-2 mr-sm-2 mb-sm-0"
+                        (change)="onGroupsChange()">
+                        <option value="">(Select)</option>
+                        <option *ngFor="let group of personGroups" [value]="group.personGroupId">{{group.name}}</option>
+                    </select>
+
+                    <button type="button" class="btn btn-danger mb-2 mr-sm-2 mb-sm-0" *ngIf="selectedGroupId"
+                        (click)="deletePersonGroup()">Delete Group</button>
+                    <button type="button" class="btn btn-success mb-2 mr-sm-2 mb-sm-0" *ngIf="selectedGroupId"
+                        (click)="trainPersonGroup()">Train Model</button>
+                    <button type="button" class="btn btn-info" *ngIf="selectedGroupId"
+                        (click)="getGroupTrainingStatus()">Check Training Status</button>-->

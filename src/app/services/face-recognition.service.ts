@@ -11,12 +11,26 @@ export class FaceRecognitionService {
   constructor(private httpClient: HttpClient) { }
 
   detect(imageUrl: string){
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Ocp-Apim-Subscription-Key': 'e2465f1be6e841a8ac6b535ae8c9bdae'
-    });
-
+    
     return this.httpClient.post(`${this.endpoint}detect?returnFaceAttributes=age,gender,smile,emotion,glasses,facialHair`,
                                 {url: imageUrl}, {headers});
   }
+
+  getPersonGroups() {
+    return this.httpClient.get<any[]>(`${this.endpoint}/persongroups`, {headers});
+  }
+
+  deletePersonGroup(personGroupId) {
+    return this.httpClient.delete(`${this.endpoint}/persongroups/${personGroupId}`, {headers});
+  }
+
+  createPersonGroup(personGroup) {
+    return this.httpClient.put<any[]>(`${this.endpoint}/persongroups/${personGroup.personGroupId}`, personGroup, {headers});
+  }
 }
+
+const headers = new HttpHeaders({
+  'Content-Type': 'application/json',
+  'Ocp-Apim-Subscription-Key': 'e2465f1be6e841a8ac6b535ae8c9bdae'
+});
+
