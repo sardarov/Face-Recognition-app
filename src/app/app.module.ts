@@ -11,12 +11,14 @@ import {FaceRecognitionService } from './services/face-recognition.service'
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { FaceAnalyzeComponent } from './face-analyze/face-analyze.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    FaceAnalyzeComponent
+    FaceAnalyzeComponent,
+    AboutComponent
   ],
   imports: [
     FormsModule,

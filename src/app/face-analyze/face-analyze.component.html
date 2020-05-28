@@ -14,8 +14,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div>
-
-                        <div *ngIf=faceDetails>
+                        <div *ngIf="faceDetails">
                             <table class="table text-sm-left">
                                 <thead>
                                     <tr>
@@ -81,7 +80,6 @@
                     </div>
                     <!-- End Modal -->
 
-                    <ng-template #waiting>waiting for you to take a picture</ng-template>
                 </div>
                 <div class="col-md-6">
                     <div class="card" *ngIf="imageURL.value">
