@@ -10,6 +10,11 @@ export class FaceRecognitionService {
 
   constructor(private httpClient: HttpClient) { }
 
+  /**
+   * This method calls detect method from the Server's API to get person's details.
+   * Result returns in form JSON.
+   * @param imageUrl string contains the url
+   */
   detect(imageUrl: string){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',

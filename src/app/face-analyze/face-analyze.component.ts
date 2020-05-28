@@ -17,12 +17,20 @@ export class FaceAnalyzeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Calls face-recognition service to get the attributes of the person in the image.
+   * @param imageUrl the Url of the image
+   */
   getPersonDetails(imageUrl){
     this.faceRecognitionService.detect(imageUrl).subscribe(data =>{
       this.faceDetails = data[0];
     });
   }
 
+  /**
+   * This method is triggered whenever the photo is uploaded
+   * @param $event
+   */
   imageLoaded($event) {
     this.faceDetails = [];
     let img = this.mainImg.nativeElement;
